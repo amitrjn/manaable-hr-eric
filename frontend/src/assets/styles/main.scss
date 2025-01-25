@@ -1,0 +1,58 @@
+// Import Bootstrap functions and variables
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+
+// Custom variables
+$enable-rounded: true;
+$enable-shadows: true;
+$enable-gradients: false;
+$enable-transitions: true;
+
+// Accessibility improvements
+$focus-ring-width: 0.25rem;
+$focus-ring-opacity: 0.25;
+$focus-ring-color: rgba($primary, 0.25);
+
+// Mobile-first breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+// Import Bootstrap
+@import "bootstrap/scss/bootstrap";
+
+// Global styles
+html {
+  font-size: 16px;
+  @media (max-width: map-get($grid-breakpoints, "sm")) {
+    font-size: 14px;
+  }
+}
+
+// Accessibility improvements
+:focus {
+  outline: $focus-ring-width solid $focus-ring-color;
+  outline-offset: 2px;
+}
+
+// Skip to main content link for keyboard navigation
+.skip-to-main {
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  padding: 1em;
+  background-color: $white;
+  color: $primary;
+  text-decoration: none;
+
+  &:focus {
+    left: 0;
+    outline: none;
+    box-shadow: 0 0 0 2px $focus-ring-color;
+  }
+}
