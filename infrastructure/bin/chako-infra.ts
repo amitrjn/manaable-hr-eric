@@ -5,6 +5,7 @@ import { ChakoFrontendStack } from '../lib/stacks/frontend-stack';
 import { ChakoBackendStack } from '../lib/stacks/backend-stack';
 import { ChakoDatabaseStack } from '../lib/stacks/database-stack';
 import { ChakoAuthStack } from '../lib/stacks/auth-stack';
+import { ChakoPipelineStack } from '../lib/stacks/pipeline-stack';
 
 const app = new cdk.App();
 
@@ -34,9 +35,15 @@ const backendStack = new ChakoBackendStack(app, `${prefix}-backend`, {
   userPool: authStack.userPool,
 });
 
-new ChakoFrontendStack(app, `${prefix}-frontend`, {
+const frontendStack = new ChakoFrontendStack(app, `${prefix}-frontend`, {
   env,
   prefix,
   apiEndpoint: backendStack.apiEndpoint,
   userPool: authStack.userPool,
+});
+
+// Create pipeline stack last since it depends on all other stacks
+new ChakoPipelineStack(app, `${prefix}-pipeline`, {
+  env,
+  prefix,
 });
