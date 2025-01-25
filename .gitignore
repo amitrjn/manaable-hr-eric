@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+.venv
+venv/
+ENV/
+
+# Build
+dist/
+build/
+*.egg-info/
+.eggs/
+*.egg
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Testing
+coverage/
+.coverage
+.pytest_cache/
+htmlcov/
+
+# CDK
+.cdk.staging/
+cdk.out/
+
+# AWS
+.aws-sam/
