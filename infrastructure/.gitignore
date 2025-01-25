@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# CDK
+.cdk.staging/
+cdk.out/
+
+# Build
+dist/
+build/
+*.js
+!jest.config.js
+*.d.ts
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
